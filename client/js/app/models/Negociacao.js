@@ -3,6 +3,8 @@ class Negociacao {
         this._data = data;
         this._quantidade = quantidade;
         this._valor = valor;
+
+        Object.freeze(this); // Congelando para os objetos da classe não terem seus atributos alterados.
     }
 
     get volume() {
