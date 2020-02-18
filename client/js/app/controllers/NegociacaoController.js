@@ -10,7 +10,7 @@ class NegociacaoController {
         event.preventDefault();
 
         let data = new Date(
-            ...this._inputData.value.split('-')
+            ...this._inputData.value.split('-') // com o Spread operator isso gera um array
             .map((item, indice) => {
                 if(indice == 1) { // 1 é a posição do array criado pelo split
                     return item - 1;
@@ -24,6 +24,10 @@ class NegociacaoController {
             this._inputQuantidade.value,
             this._inputValor.value
         );
+
+        document.querySelector('.form').reset();
+
+        this._inputData.focus();
 
         console.log(negociacao);
     }
