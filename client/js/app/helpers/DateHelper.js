@@ -1,6 +1,10 @@
 class DateHelper {
+
+    constructor() {
+        throw new Error('Esta classe não pode ser instanciada');
+    }
     
-    textoParaData(texto) {
+    static textoParaData(texto) {
         return new Date(
             ...texto
             .split('-') // com o Spread operator isso gera um array
@@ -13,7 +17,7 @@ class DateHelper {
         );
     }
 
-    dataParaTexto(data) {
+    static dataParaTexto(data) {
         return data.getDate() + '/' + (data.getMonth() + 1) + '/' + data.getFullYear();
     }
 }
