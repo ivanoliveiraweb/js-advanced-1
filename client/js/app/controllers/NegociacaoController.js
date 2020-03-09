@@ -9,28 +9,18 @@ class NegociacaoController {
     adiciona(event) {
         event.preventDefault();
 
-        let data = new Date(
-            ...this._inputData.value.split('-') // com o Spread operator isso gera um array
-            .map((item, indice) => {
-                if(indice == 1) { // 1 é a posição do array criado pelo split
-                    return item - 1;
-                }
-                return item;
-            })
-        );
+        let helper = new DateHelper();
 
         let negociacao = new Negociacao(
-            data,
+            helper.textoParaData(this._inputData.value),
             this._inputQuantidade.value,
             this._inputValor.value
         );
 
-        let diaMesAno = negociacao.data.getDate() + '/' + (negociacao.data.getMonth() + 1) + '/' + negociacao.data.getFullYear();
+        console.log(negociacao);
+        console.log(helper.dataParaTexto(negociacao.data));
 
         document.querySelector('.form').reset();
-
         this._inputData.focus();
-
-        console.log(diaMesAno);
     }
 }
