@@ -8,6 +8,6 @@ class ListaNegociacoes {
     }
 
     get negociacoes() {
-        return this._negociacoes;
+        return [].concat(this._negociacoes); // blindando negociações para não ter acesso de forma externa
     }
 }
