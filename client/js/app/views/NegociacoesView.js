@@ -24,11 +24,19 @@ class NegociacoesView {
                         <td>${negociacao.valor}</td>
                         <td>${negociacao.volume}</td>
                     </tr>
-                    
+
                 `).join('') /* junta tudo e vira uma grande string */ }
             </tbody>
             
             <tfoot>
+                <td colspan="3"></td>
+                <td>${
+                    (function() {
+                        let total = 0;
+                        model.negociacoes.forEach(negociacao => total += negociacao.volume);
+                        return total;
+                    })()
+                }</td>
             </tfoot>
         </table>   
         `;
